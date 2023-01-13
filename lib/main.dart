@@ -4,13 +4,22 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+
+class MyApp extends StatefulWidget {
+  State<StatefulWidget> createState() {
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State {
   int questionsIndex = 0;
-  
+
   void answerQuestion() {
     print("index : $questionsIndex");
 
-    questionsIndex = questionsIndex + 1;
+    setState(() {
+      questionsIndex = questionsIndex + 1;
+    });
   }
 
   Widget build(BuildContext context) {
